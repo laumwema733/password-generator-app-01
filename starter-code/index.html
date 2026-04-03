@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="index.css" />
+    <script defer src="app.js"></script>
+    <title>Frontend Mentor | Password generator app</title>
+  </head>
+  <body>
+    <div class="app">
+      <h1>Password Generator</h1>
+      <div class="container">
+        <p class="password">
+          <span class="password-generated">P4$5W0rD!</span>
+          <span class="copy-box"
+            ><span class="copy-text">copied</span>
+            <span class="copy"><i class="fa-regular fa-copy icon"></i></span
+          ></span>
+        </p>
+        <div class="inner-container">
+          <div class="progress">
+            <label>Character Length <span class="value">0</span> </label>
+            <input type="range" value="0" max="20" class="range" />
+          </div>
+          <ul>
+            <li>
+              <input
+                type="checkbox"
+                name="uppercase"
+                id="uppercase"
+                class="input-checkbox"
+              />
+              <label for="uppercase">Include Uppercase letters</label>
+            </li>
+            <li>
+              <input
+                type="checkbox"
+                name="lowercase"
+                id="lowercase"
+                class="input-checkbox"
+              />
+              <label for="lowercase"> Include Lowercase Letters</label>
+            </li>
+            <li>
+              <input
+                type="checkbox"
+                name="number"
+                id="number"
+                class="input-checkbox"
+              />
+              <label for="number">Include Numbers</label>
+            </li>
+            <li>
+              <input
+                type="checkbox"
+                name="symbols"
+                id="symbols"
+                class="input-checkbox"
+              />
+              <label for="symbols">Symbols Symbols</label>
+            </li>
+          </ul>
+          <div class="strength-checker">
+            <span class="strength"> strength </span>
+            <div class="box-content">
+              <span class="info">WEAK</span>
+              <div class="strength-boxes">
+                <span class="box" id="id-0"></span>
+                <span class="box" id="id-1"></span>
+                <span class="box" id="id-2"></span>
+                <span class="box" id="id-3"></span>
+              </div>
+            </div>
+          </div>
+          <button class="btn btn-generate">Generate <span>&rarr;</span></button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
