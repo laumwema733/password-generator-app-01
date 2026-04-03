@@ -239,7 +239,8 @@ input[type="checkbox"]:checked::after {
   .strength,
   .btn-generate,
   .info,
-  .error {
+  .error,
+  .value {
     font-size: 1.8rem;
     letter-spacing: 1px;
   }
