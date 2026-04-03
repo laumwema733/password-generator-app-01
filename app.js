@@ -1,18 +1,18 @@
 // selecting DOM Element
 const range = document.querySelector(".range");
-const result = document.querySelector(".password-generated");
+const inputPlaceholder = document.querySelector(".password-generated");
 const copy = document.querySelector(".icon");
 const checkBoxes = document.querySelectorAll(".input-checkbox");
 const uppercase = document.getElementById("uppercase");
 const lowercase = document.getElementById("lowercase");
 const number = document.getElementById("number");
 const symbols = document.getElementById("symbols");
-const initialText = "P4$5W0rD!";
+const initialText = `P4$5W0rD!`;
 const strengthBoxes = document.querySelectorAll(".box");
 
 document.querySelector(".copy").addEventListener("click", () => {
   navigator.clipboard
-    .writeText(result.textContent)
+    .writeText(inputPlaceholder.placeholder)
     .then(copyText())
     .catch((err) => console.log(err.message));
 });
@@ -24,17 +24,18 @@ const color = "rgb(248, 205, 101)";
 //Handling character length
 function handleCharacterLength() {
   if (range.value < 10) {
-    result.innerHTML = `<p class='error'>character length low than 10</p>`;
+    inputPlaceholder.placeholder = `character length low than 10`;
 
     setTimeout(() => {
-      result.textContent = initialText;
+      inputPlaceholder.placeholder = `${initialText}`;
+      inputPlaceholder.style.setProperty("#fff", "--placeholder-color");
     }, 1000);
   } else {
     if (!generatePassword(Number(range.value))) {
-      result.innerHTML = `<p class='error'>choose at least one or two characters</p>`;
+      inputPlaceholder.placeholder = "choose at least one or two characters";
     } else {
-      result.textContent = generatePassword(Number(range.value) + 1);
-      result.style.color = "#fff";
+      inputPlaceholder.placeholder = generatePassword(Number(range.value) + 1);
+      inputPlaceholder.style.setProperty("--placeholder-color", "#fff");
     }
   }
 }
@@ -51,7 +52,7 @@ range.addEventListener("input", function (e) {
 
 // copied password
 function copyText() {
-  if (result.textContent === initialText) return;
+  if (inputPlaceholder.placeholder === initialText) return;
   document.querySelector(".copy-text").style.display = "flex";
   setTimeout(function () {
     document.querySelector(".copy-text").style.display = "none";
@@ -74,9 +75,10 @@ function generatePassword(length) {
   let password = "";
 
   if (allowedChars.length === 0) {
-    result.innerHTML = `<p class='error'>choose at least one or two characters</p>`;
+    inputPlaceholder.placeholder = `choose at least one or two characters`;
     setTimeout(() => {
-      result.innerHTML = initialText;
+      inputPlaceholder.placeholder = `${initialText}`;
+      inputPlaceholder.style.setProperty("#fff", "--placeholder-color");
     }, 1000);
   } else {
     for (let i = 0; i < length; i++) {
