@@ -45,7 +45,7 @@ range.addEventListener("input", function (e) {
     ((e.target.value - e.target.min) / (e.target.max - e.target.min)) * 100 +
     "%";
   e.target.style.setProperty("--percent", percentage);
-  e.target.style.background = `liniar-gradient(to right, #a4ffaf ${percentage}, #000 ${percentage})`;
+  e.target.style.background = `linear-gradient(to right, #a4ffaf ${percentage}, #000 ${percentage})`;
   document.querySelector(".value").textContent = range.value;
 });
 
